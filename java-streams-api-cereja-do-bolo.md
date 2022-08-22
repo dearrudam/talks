@@ -487,43 +487,6 @@ Dado uma lista de pessoas, listar o nome das pessoas com idade superior a 18 ano
 
 <pre data-id="code-animation">
 <code  data-trim style="font-size: 70%;line-height: 1.0;"
-data-line-numbers="8-16"
->
-<script type="text/template">
-    private List<String> exemplo01_usandoForLoopInParallel(
-        final List<Pessoa> pessoas,
-        final ExecutorService executorService) throws InterruptedException {
-        final CountDownLatch countDownLatch=new CountDownLatch(pessoas.size());
-        final List<String> result = List.of();
-        for (int i = 0; i < result.size(); i++) {
-            final Pessoa p = pessoas.get(i);
-            executorService.execute(() -> {
-                try{
-                    if (p.getIdade() > 18) {
-                        result.add(p.getNome());
-                    }   
-                }finally{
-                    countDownLatch.countDown();
-                }     
-            });
-            
-        }
-        countDownLatch.await();
-        return result;
-    }
-</script>
-</code>
-</pre>
-
-
-
-
-### Exemplo 02
-
-Dado uma lista de pessoas, listar o nome das pessoas com idade superior a 18 anos, porém, utilizando paralelismo:<!-- .element: class="r-fit-text"  -->
-
-<pre data-id="code-animation">
-<code  data-trim style="font-size: 70%;line-height: 1.0;"
 data-line-numbers="3"
 >
 <script type="text/template">
