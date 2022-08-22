@@ -290,7 +290,7 @@ gulp.task('zippackage', gulp.series(() =>
 
     gulp.src(
         [
-            './index.html',
+            './*.html',
             './dist/**',
             './lib/**',
             './images/**',
