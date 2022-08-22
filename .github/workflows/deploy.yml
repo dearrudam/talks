@@ -8,7 +8,7 @@ on:
       - completed
 
 jobs:
-  build:
+  build-and-deploy:
 
     runs-on: ubuntu-latest
 
@@ -23,7 +23,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Packaging
-      run: npm run package
+    - run: npm install
+    - run: npm run package
     
     - name: Deploy to GitHub Pages
       uses: crazy-max/ghaction-github-pages@v2
